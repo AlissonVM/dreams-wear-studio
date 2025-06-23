@@ -22,8 +22,9 @@
                     <li><a href="#contact">Contacto</a></li>
                 </ul>
             </nav>
-            <div class="cart-icon">
+            <div class="cart-icon" id="openCart">
                 <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count" class="cart-count">0</span>
             </div>
         </div>
     </header>
@@ -55,8 +56,8 @@
                         <a href="#community" class="btn">Únete a la Comunidad</a>
                     </div>
                 </div>
-                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                <a class="prev" onclick="plusSlides(-1)">❮</a>
+                <a class="next" onclick="plusSlides(1)">❯</a>
             </div>
             <div style="text-align:center; margin-top: 20px;">
                 <span class="dot" onclick="currentSlide(1)"></span>
@@ -68,7 +69,22 @@
         <section id="about" class="about-us">
             <div class="container">
                 <h2>¿Quiénes Somos?</h2>
-                <p>Dreams Wear Studio S.A.C. (DWS S.A.C.) es una marca de moda contemporánea especializada en el diseño, producción y comercialización digital de ropa estilo streetwear.  Nuestra propuesta combina tendencias urbanas, mensajes con identidad y un enfoque creativo que permite a cada persona vestirse como sueña.  Diseñamos cada prenda como una declaración de autenticidad: desde oversize hoodies, joggers, crop tops y sets coordinados, hasta chaquetas statement y camisetas gráficas con frases empoderadoras.  Todos nuestros productos están pensados para ofrecer comodidad, estilo y personalidad, manteniendo una estética minimalista con toques artísticos y una fuerte influencia del diseño urbano. </p>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>En **Dreams Wear Studio S.A.C. (DWS S.A.C.)** no solo vendemos ropa; ofrecemos una plataforma para la expresión personal a través de la moda streetwear. Nacimos en Perú con la visión de fusionar las tendencias urbanas con mensajes potentes que resuenen contigo.</p>
+                        <h3>Nuestra Esencia:</h3>
+                        <ul>
+                            <li><i class="fas fa-tshirt"></i> **Diseño de Autor:** Cada prenda es una pieza única, con un enfoque creativo que destaca tu individualidad.</li>
+                            <li><i class="fas fa-comments"></i> **Mensajes con Identidad:** Nuestras camisetas gráficas y hoodies llevan frases que empoderan y cuentan una historia.</li>
+                            <li><i class="fas fa-hand-holding-heart"></i> **Comodidad y Calidad:** Diseñamos pensando en tu día a día, garantizando el máximo confort sin sacrificar el estilo.</li>
+                            <li><i class="fas fa-brush"></i> **Estética Minimalista Urbana:** Combinamos lo moderno con toques artísticos, reflejando la vibrante cultura urbana.</li>
+                        </ul>
+                        <p>DWS S.A.C. es donde la moda se encuentra con la voz. Únete a nuestra comunidad y viste tus sueños.</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="images/about-us-image.jpg" alt="Equipo Dreams Wear Studio">
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -81,24 +97,69 @@
                         <h3>Oversize Hoodie "Libre"</h3>
                         <p>Comodidad y estilo para tu día a día.</p>
                         <span class="price">S/ 149.90</span>
-                        <button class="add-to-cart">Añadir al Carrito</button>
+                        <button class="add-to-cart"
+                                data-id="1"
+                                data-name="Oversize Hoodie 'Libre'"
+                                data-price="149.90"
+                                data-image="images/product1.jpg">Añadir al Carrito</button>
                     </div>
                     <div class="product-card">
                         <img src="images/product2.jpg" alt="Joggers "Actitud"">
                         <h3>Joggers "Actitud"</h3>
                         <p>Diseño urbano y versátil.</p>
                         <span class="price">S/ 119.90</span>
-                        <button class="add-to-cart">Añadir al Carrito</button>
+                        <button class="add-to-cart"
+                                data-id="2"
+                                data-name="Joggers 'Actitud'"
+                                data-price="119.90"
+                                data-image="images/product2.jpg">Añadir al Carrito</button>
                     </div>
                     <div class="product-card">
                         <img src="images/product3.jpg" alt="Camiseta Gráfica "Sueña"">
                         <h3>Camiseta Gráfica "Sueña"</h3>
                         <p>Expresa tu historia con arte.</p>
                         <span class="price">S/ 99.90</span>
-                        <button class="add-to-cart">Añadir al Carrito</button>
+                        <button class="add-to-cart"
+                                data-id="3"
+                                data-name="Camiseta Gráfica 'Sueña'"
+                                data-price="99.90"
+                                data-image="images/product3.jpg">Añadir al Carrito</button>
+                    </div>
+                     <div class="product-card">
+                        <img src="images/product4.jpg" alt="Crop Top "Fuerza"">
+                        <h3>Crop Top "Fuerza"</h3>
+                        <p>Estilo y confort para cada movimiento.</p>
+                        <span class="price">S/ 89.90</span>
+                        <button class="add-to-cart"
+                                data-id="4"
+                                data-name="Crop Top 'Fuerza'"
+                                data-price="89.90"
+                                data-image="images/product4.jpg">Añadir al Carrito</button>
+                    </div>
+                     <div class="product-card">
+                        <img src="images/product5.jpg" alt="Set Coordinado "Unión"">
+                        <h3>Set Coordinado "Unión"</h3>
+                        <p>Combinación perfecta de moda y comodidad.</p>
+                        <span class="price">S/ 219.90</span>
+                        <button class="add-to-cart"
+                                data-id="5"
+                                data-name="Set Coordinado 'Unión'"
+                                data-price="219.90"
+                                data-image="images/product5.jpg">Añadir al Carrito</button>
+                    </div>
+                     <div class="product-card">
+                        <img src="images/product6.jpg" alt="Chaqueta Statement "Visión"">
+                        <h3>Chaqueta Statement "Visión"</h3>
+                        <p>Marca tendencia con un diseño audaz.</p>
+                        <span class="price">S/ 229.90</span>
+                        <button class="add-to-cart"
+                                data-id="6"
+                                data-name="Chaqueta Statement 'Visión'"
+                                data-price="229.90"
+                                data-image="images/product6.jpg">Añadir al Carrito</button>
                     </div>
                 </div>
-                <p class="price-note">Dreams Wear Studio se posiciona en un rango competitivo, con precios entre S/ 109.90 y S/ 239.90, buscando el equilibrio entre exclusividad y accesibilidad. </p>
+                <p class="price-note">Dreams Wear Studio se posiciona en un rango competitivo, con precios entre S/ 89.90 y S/ 239.90, buscando el equilibrio entre exclusividad y accesibilidad.</p>
             </div>
         </section>
 
@@ -110,17 +171,17 @@
                     <div class="feature-item">
                         <i class="fas fa-lightbulb"></i>
                         <h3>Sugerencias de Frases</h3>
-                        <p>Crea una sección en la web donde los usuarios sugieran frases para nuevas camisetas. </p>
+                        <p>Crea una sección en la web donde los usuarios sugieran frases para nuevas camisetas.</p>
                     </div>
                     <div class="feature-item">
                         <i class="fas fa-paint-brush"></i>
                         <h3>Tu Historia en una Prenda</h3>
-                        <p>Lanza una línea "Tu historia en una prenda" con frases o diseños enviados por la comunidad. </p>
+                        <p>Lanza una línea "Tu historia en una prenda" con frases o diseños enviados por la comunidad.</p>
                     </div>
                     <div class="feature-item">
                         <i class="fas fa-poll"></i>
                         <h3>Vota por Diseños</h3>
-                        <p>Diseña encuestas de votación en Instagram para decidir colores, siluetas o frases. </p>
+                        <p>Diseña encuestas de votación en Instagram para decidir colores, siluetas o frases.</p>
                     </div>
                 </div>
                 <a href="#" class="btn secondary-btn">¡Únete a la Comunidad!</a>
@@ -166,6 +227,35 @@
             <p>© 2025 Dreams Wear Studio S.A.C. Todos los derechos reservados.</p>
         </div>
     </footer>
+
+    <div id="cartModal" class="cart-modal">
+        <div class="cart-content">
+            <span class="close-button" id="closeCart">&times;</span>
+            <h2>Tu Carrito de Compras</h2>
+            <div id="cart-items">
+                <p>Tu carrito está vacío.</p>
+            </div>
+            <div class="cart-summary">
+                <p>Total: <span id="cart-total">S/ 0.00</span></p>
+                <button class="btn checkout-btn">Proceder al Pago</button>
+            </div>
+
+            <div class="payment-methods">
+                <h3>Métodos de Pago Seguros:</h3>
+                <div class="payment-icons">
+                    <img src="images/visa.png" alt="Visa">
+                    <img src="images/mastercard.png" alt="Mastercard">
+                    <img src="images/american-express.png" alt="American Express">
+                    <img src="images/culqi.png" alt="Culqi">
+                    <img src="images/niubiz.png" alt="Niubiz">
+                    <img src="images/mercadopago.png" alt="MercadoPago">
+                    <img src="images/yape.png" alt="Yape">
+                    <img src="images/plin.png" alt="Plin">
+                    </div>
+                <p class="payment-note">Pagos contra entrega disponibles en zonas seleccionadas.</p>
+            </div>
+        </div>
+    </div>
 
     <script src="js/script.js"></script>
 </body>
