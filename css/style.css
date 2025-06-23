@@ -30,8 +30,10 @@ header .container {
     align-items: center;
 }
 
+/* Make logo bigger */
 header .logo img {
-    height: 50px;
+    height: 70px; /* Aumenta el tamaño del logo */
+    width: auto;
 }
 
 header nav ul {
@@ -66,31 +68,110 @@ header nav ul li a:hover {
     color: #f0a500;
 }
 
-/* Hero Banner Section */
+/* Hero Banner Section with Carousel */
 .hero-banner {
-    background: url('../images/hero-banner.jpg') no-repeat center center/cover;
-    color: #fff;
-    text-align: center;
-    padding: 100px 20px;
-    height: 500px; /* Ajusta la altura según sea necesario */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    position: relative;
+    width: 100%;
+    overflow: hidden; /* Oculta partes de las imágenes que se salen */
+    height: 500px; /* Altura fija para el carrusel */
 }
 
-.hero-banner h1 {
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-slide {
+    display: none; /* Por defecto, ocultamos todas las diapositivas */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen cubra el contenedor */
+}
+
+.carousel-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    width: 80%;
+}
+
+.carousel-caption h1 {
     font-size: 3.5em;
     margin-bottom: 20px;
-    max-width: 800px;
 }
 
-.hero-banner p {
+.carousel-caption p {
     font-size: 1.5em;
     margin-bottom: 30px;
-    max-width: 700px;
 }
+
+/* Next & previous buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 10; /* Asegura que los botones estén por encima de las imágenes */
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+/* The dots/bullets/indicators */
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+    background-color: #f0a500;
+}
+
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
 
 .btn {
     display: inline-block;
@@ -338,11 +419,11 @@ footer .social-media a:hover {
         margin: 5px 10px;
     }
 
-    .hero-banner h1 {
+    .carousel-caption h1 {
         font-size: 2.5em;
     }
 
-    .hero-banner p {
+    .carousel-caption p {
         font-size: 1.2em;
     }
 
@@ -352,11 +433,15 @@ footer .social-media a:hover {
 }
 
 @media (max-width: 480px) {
-    .hero-banner h1 {
+    header .logo img {
+        height: 60px; /* Ajusta el tamaño del logo para pantallas más pequeñas */
+    }
+
+    .carousel-caption h1 {
         font-size: 2em;
     }
 
-    .hero-banner p {
+    .carousel-caption p {
         font-size: 1em;
     }
 
